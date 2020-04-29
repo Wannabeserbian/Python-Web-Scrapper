@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup as bs
 
 url = requests.get('https://tradingeconomics.com/country-list/rating')
 soup = bs(url.content,"html.parser")
-timestr = time.strftime("%Y%m%d-%H%M%S")
-filename = 'scraped-data.csv'
+timestamp = time.strftime("%Y%m%d-%H%M")
+filename = f'scraped-data-{timestamp}.csv'
 csv_writer = csv.writer(open(filename,'w'))
 heading = soup.find('h1')
 
